@@ -1,0 +1,94 @@
+---
+label: Checklist Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: text
+    name: title
+    label: Section Title
+    default: Augue feugiat
+    config:
+      required: true
+  - type: text
+    name: subtitle
+    label: Section Subtitle
+    description: The small text displayed above the section title
+  - type: text
+    name: section_id
+    label: Section ID
+    default: four
+    config:
+      required: true
+  - type: select
+    name: background_style
+    label: Background Style
+    description: Sets the background color of the section
+    default: style3
+    config:
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+        - style3
+        - style4
+        - style5
+        - style6
+  - type: field_group
+    name: home_img
+    label: Section Image
+    description: The Image displayed next to the section contents
+    fields:
+      - type: file
+        name: path
+        label: Image
+      - type: text
+        name: type
+        label: Image Type
+        description: The type of image being displayed
+        default: image/svg+xml
+      - type: select
+        name: alignment
+        label: Image Position
+        description: The side of the section the image is displayed on
+        default: right
+        config:
+          source:
+            type: custom
+          options:
+            - left
+            - right
+      - type: file
+        name: IE_alt
+        label: Internet Explorer Alternate Image
+        description: An alternate image used by the internet explorer browser
+  - type: field_group_list
+    name: checklist_items
+    label: Checklist Entries
+    description: A list of entries to be displayed in the section checklist
+    config:
+      labelField: text
+    fields:
+      - type: text
+        name: text
+        label: Entry Text
+        description: The text displayed next to the check
+        config:
+          required: true
+  - type: field_group_list
+    name: actions
+    label: Section Action Buttons
+    config:
+      labelField: label
+    fields:
+      - type: include
+        name: include_action
+        label: Action
+        template: action
+  - type: text
+    name: component
+    hidden: true
+    default: checklist.html
+    config:
+      required: true

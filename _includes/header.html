@@ -1,0 +1,21 @@
+<!-- Header -->
+<header id="header"{% if page.layout == 'home' %} class="alt"{% endif %}>
+    <h1><a href="{{ site.baseurl | relative_url }}">{{ site.title }}</a></h1>
+    <a href="#nav"><span>Menu</span></a>
+</header>
+
+<!-- Nav -->
+<nav id="nav">
+    <ul class="links">
+        {% for item in site.menus.main %}
+            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% if site.menu.actions %}
+        <ul class="actions stacked">
+            {% for action in site.menu.actions %}
+                <li><a href="{% assign expr_1 = action.url | starts_with: '#' %}{% if expr_1 %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" class="button fit{% if action.is_primary %} primary{% endif %}{% if action.is_scrolly %} scrolly{% endif %}">{{ action.label }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</nav>

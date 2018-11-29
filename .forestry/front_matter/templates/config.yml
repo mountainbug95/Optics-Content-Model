@@ -1,0 +1,80 @@
+---
+label: Config
+hide_body: true
+is_partial: false
+fields:
+  - type: text
+    name: title
+    label: Title
+    description: Site title
+    config:
+      required: true
+  - type: text
+    name: home_template
+    description: The name of the home template
+    hidden: true
+    default: home
+  - type: field_group
+    name: menu
+    label: Menu Configuration
+    fields:
+      - type: field_group_list
+        name: actions
+        label: Menu Action Buttons
+        config:
+          labelField: label
+        fields:
+          - type: include
+            name: include_action
+            label: Action
+            template: action
+  - type: text
+    name: copyright
+    label: Copyright Text
+    description: The copyright text displayed in the page footer
+  - type: select
+    name: palette
+    label: Color Palette
+    description: The coor palette used by the site
+    default: blue
+    config:
+      required: true
+      source:
+        type: custom
+      options:
+        - blue
+        - green
+        - purple
+        - red
+  - type: field_group
+    name: palettes
+    hidden: true
+    fields:
+      - type: field_group
+        name: blue
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: green
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: purple
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette
+      - type: field_group
+        name: red
+        fields:
+          - type: include
+            name: include_palette
+            label: Palette
+            template: palette

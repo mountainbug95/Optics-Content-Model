@@ -1,0 +1,36 @@
+<!-- Two -->
+<section id="{{ include.section.section_id }}" class="wrapper {{ include.section.background_style }}">
+    <div class="inner">
+        <header class="special major narrow">
+            <small>{{ include.section.subtitle }}</small>
+            <h2>{{ include.section.title }}</h2>
+            {{ include.section.text | markdownify }}
+        </header>
+        <div class="features">
+            {% if include.section.left_col %}
+                <ul class="left">
+                    {% for feature in include.section.left_col %}
+                        <li class="icon alt {{ feature.icon }}">
+                            <span class="label">{{ feature.label }}</span>
+                            {{ feature.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% if include.section.center_img %}
+                <object type="{{ include.section.center_img.type }}" data="{{ include.section.center_img.path | relative_url }}"></object>
+                <!--[if lte IE 8]><span class="image fit"><img src="{{ include.section.center_img.IE_alt | relative_url }}" alt="" /></span><![endif]-->
+            {% endif %}
+            {% if include.section.right_col %}
+                <ul class="right">
+                    {% for feature in include.section.right_col %}
+                        <li class="icon alt {{ feature.icon }}">
+                            <span class="label">{{ feature.label }}</span>
+                            {{ feature.text }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+    </div>
+</section>

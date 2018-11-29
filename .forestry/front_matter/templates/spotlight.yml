@@ -1,0 +1,79 @@
+---
+label: Spotlight Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: select
+    name: background_style
+    label: Background Style
+    description: Sets the background color of the section
+    config:
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+        - style3
+        - style4
+        - style5
+        - style6
+  - type: text
+    name: title
+    label: Section Title
+    default: Cras ornare
+    config:
+      required: true
+  - type: text
+    name: subtitle
+    label: Section Subtitle
+    description: The small text displayed above the section title
+  - type: textarea
+    name: text
+    label: Section Text
+    description: The text displayed below the section title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: text
+    name: section_id
+    label: Section ID
+    default: three
+    config:
+      required: true
+  - type: field_group
+    name: home_img
+    label: Spotlight Image
+    description: The image displayed next to the spotlight
+    fields:
+      - type: file
+        name: path
+        label: Image
+      - type: select
+        name: alignment
+        label: Image Position
+        description: The side of the spotlight the image is displayed on
+        config:
+          required: true
+          source:
+            type: custom
+          options:
+            - left
+            - right
+  - type: field_group_list
+    name: actions
+    label: Section Action Buttons
+    config:
+      labelField: label
+    fields:
+      - type: include
+        name: include_action
+        label: Action
+        template: action
+  - type: text
+    name: component
+    hidden: true
+    default: spotlight.html
+    config:
+      required: true

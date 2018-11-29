@@ -1,0 +1,69 @@
+---
+label: Icons Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: select
+    name: background_style
+    label: Background Style
+    description: Sets the background color of the section
+    config:
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+        - style3
+        - style4
+        - style5
+        - style6
+  - type: text
+    name: title
+    label: Section Title
+    default: Donec nec justo eget felis
+    config:
+      required: true
+  - type: textarea
+    name: text
+    label: Section Text
+    description: The text displayed below the section title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: text
+    name: section_id
+    label: Section ID
+    default: one
+    config:
+      required: true
+  - type: field_group_list
+    name: icons
+    label: Section Icons
+    description: The Icond displayed along the top of the section
+    config:
+      labelField: title
+    fields:
+      - type: text
+        name: title
+        label: Icon Title
+        config:
+          required: true
+      - type: text
+        name: icon
+        label: Icon
+        description: Font Awesome icon
+        config:
+          required: true
+      - type: boolean
+        name: is_special
+        label: Assign Primary Color
+        description: Gives the icon a primary color scheme
+        default: false
+  - type: text
+    name: component
+    hidden: true
+    default: icons.html
+    config:
+      required: true

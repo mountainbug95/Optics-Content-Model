@@ -1,0 +1,27 @@
+<!-- Four -->
+<section id="{{ include.section.section_id }}" class="wrapper {{ include.section.background_style }}">
+    <div class="inner spotlight {{ include.section.home_img.alignment }}">
+        {% if include.section.home_img %}
+            <object type="{{ include.section.home_img.type }}" data="{{ include.section.home_img.path | relative_url }}"></object>
+            <!--[if lte IE 8]><span class="image fit"><img src="{{ include.section.home_img.IE_alt | relative_url }}" alt="" /></span><![endif]-->
+        {% endif %}
+        <article>
+            <header>
+                <small>{{ include.section.subtitle }}</small>
+                <h2>{{ include.section.title }}</h2>
+            </header>
+            <ul class="checklist">
+                {% for item in include.section.checklist_items %}
+                    <li>{{ item.text }}</li>
+                {% endfor %}
+            </ul>
+            {% if include.section.actions %}
+                <ul class="actions">
+                    {% for action in include.section.actions %}
+                        <li><a href="{% assign expr_1 = action.url | starts_with: '#' %}{% if expr_1 %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" class="button{% if action.is_primary %} primary{% endif %}{% if action.is_scrolly %} scrolly{% endif %}">{{ action.label }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </article>
+    </div>
+</section>

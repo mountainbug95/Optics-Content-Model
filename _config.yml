@@ -1,0 +1,71 @@
+title: Optics
+baseurl: /
+home_template: home
+menu:
+  actions:
+    - label: Sign Up
+      url: generic.md
+      is_scrolly: false
+      is_primary: true
+    - label: Log In
+      url: generic.md
+      is_scrolly: false
+      is_primary: false
+copyright: '&copy; Optics. All rights reserved.'
+palette: blue
+palettes:
+  blue:
+    sass:
+      linear_gradient1: 'rgba(166,148,232,0.25)'
+      linear_gradient2: 'rgba(102,143,193,0.35)'
+      linear_gradient3: 'rgba(166,148,232,0.25)'
+      linear_gradient4: 'rgba(102,143,193,0.35)'
+      font_color: '#95accf'
+      accent1: '#a4c2ef'
+      accent2: '#4a4c4f'
+      accent4_bg: '#333a45'
+      accent4: '#95accf'
+      accent5: '#92b3e4'
+  green:
+    sass:
+      linear_gradient1: 'rgba(160,167,232,0.25)'
+      linear_gradient2: 'rgba(86,153,158,0.35)'
+      linear_gradient3: 'rgba(160,167,232,0.25)'
+      linear_gradient4: 'rgba(86,153,158,0.35)'
+      font_color: '#9fc7bf'
+      accent1: '#65bfad'
+      accent2: '#474a4c'
+      accent4_bg: '#324440'
+      accent4: '#9fc7bf'
+      accent5: '#52a897'
+  purple:
+    sass:
+      linear_gradient1: 'rgba(149,205,233,0.25)'
+      linear_gradient2: 'rgba(133,86,159,0.35)'
+      linear_gradient3: 'rgba(149,205,233,0.25)'
+      linear_gradient4: 'rgba(133,86,159,0.35)'
+      font_color: '#ba9fc7'
+      accent1: '#c5a5ce'
+      accent2: '#4d494e'
+      accent4_bg: '#3c3244'
+      accent4: '#ba9fc7'
+      accent5: '#a585ae'
+  red:
+    sass:
+      linear_gradient1: 'rgba(180,160,233,0.25)'
+      linear_gradient2: 'rgba(234,86,159,0.15)'
+      linear_gradient3: 'rgba(180,160,233,0.25)'
+      linear_gradient4: 'rgba(234,86,159,0.15)'
+      font_color: '#cf95a0'
+      accent1: '#d16276'
+      accent2: '#3d3536'
+      accent4_bg: '#3f333f'
+      accent4: '#cf95a0'
+      accent5: '#bf5264'
+sass:
+  indentWidth: 4
+  style: nested
+  precision: 10
+plugins:
+  - jekyll-menus
+permalink: '/posts/:slug:output_ext'

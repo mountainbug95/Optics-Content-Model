@@ -1,0 +1,18 @@
+---
+layout: body
+---
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>{{ page.title }}</h2>
+            {{ page.subtitle | markdownify }}
+        </header>
+        <section class="wrapper">
+            <div class="inner">
+                
+                {{ content }}
+                
+            </div>
+        </section>
+    </article>

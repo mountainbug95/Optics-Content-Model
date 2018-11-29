@@ -1,0 +1,187 @@
+---
+---
+
+// Misc.
+$misc: (
+    z-index-base:		10000
+);
+
+// Duration.
+$duration: (
+    nav:				0.5s,
+    transition:			0.2s
+);
+
+// Size.
+$size: (
+    border-radius:		0,
+    border-width:		1px,
+    element-height:		2.75em,
+    element-margin:		2em,
+    nav:				20em
+);
+
+// Font.
+$font: (
+    family:				('Lato', Arial, Helvetica, sans-serif),
+    family-header: 		('Josefin Sans', Arial, Helvetica, sans-serif),
+    family-fixed:		('Courier New', monospace),
+    letter-spacing:     0.1em,
+    weight:				300,
+    weight-bold:		400,
+    weight-extra-bold:	600
+);
+
+// Palette.
+{% assign palette = site.palettes[site.palette].sass %}
+$palette: (
+    bg-alt:				#333,
+    bg:					#fff,
+    fg:					#777,
+    fg-bold:			#555,
+    fg-light:			#bbb,
+    highlight:			{{ palette.accent1 }},
+    border:				rgba(144,144,144,0.25),
+    border-bg:			rgba(144,144,144,0.075),
+    border2:			rgba(144,144,144,0.5),
+    border2-bg:			rgba(144,144,144,0.2),
+
+    misc: (
+        linear-gradient1: {{ palette.linear_gradient1 }},
+        linear-gradient2: {{ palette.linear_gradient2 }},
+        linear-gradient3: {{ palette.linear_gradient3 }},
+        linear-gradient4: {{ palette.linear_gradient4 }},
+        font-color: {{ palette.font_color }}
+    ),
+    
+    accent1: (
+        bg:				{{ palette.accent1 }},
+        fg:				mix({{ palette.accent1 }}, #ffffff, 25%),
+        fg-bold:		#ffffff,
+        fg-light:		mix({{ palette.accent1 }}, #ffffff, 40%),
+        highlight:		darken({{ palette.accent1 }}, 30),
+        border:			#fff,
+        border-bg:		rgba(255,255,255,0.075),
+        border2:		#fff,
+        border2-bg:		rgba(255,255,255,0.2)
+    ),
+
+    accent2: (
+        bg:				{{ palette.accent2 }},
+        fg:				mix({{ palette.accent2 }}, #ffffff, 25%),
+        fg-bold:		#ffffff,
+        fg-light:		mix({{ palette.accent2 }}, #ffffff, 40%),
+        highlight:		#ffffff,
+        border:			rgba(255,255,255,0.15),
+        border-bg:		rgba(255,255,255,0.075),
+        border2:		rgba(255,255,255,0.5),
+        border2-bg:		rgba(255,255,255,0.2)
+    ),
+
+    accent3: (
+        bg:				#eeefef,
+        fg:				#777,
+        fg-bold:		#555,
+        fg-light:		#bbb,
+        highlight:		#222,
+        border:			rgba(144,144,144,0.25),
+        border-bg:		rgba(144,144,144,0.075),
+        border2:		rgba(144,144,144,0.5),
+        border2-bg:		rgba(144,144,144,0.2),
+    ),
+
+    accent4: (
+        bg:				{{ palette.accent4_bg }},
+        fg:				{{ palette.accent4 }},
+        fg-bold:		{{ palette.accent4 }},
+        fg-light:		{{ palette.accent4 }},
+        highlight:		lighten({{ palette.accent4 }}, 15),
+        border:			{{ palette.accent4 }},
+        border-bg:		rgba(255,255,255,0.075),
+        border2:		{{ palette.accent4 }},
+        border2-bg:		rgba(255,255,255,0.2)
+    ),
+
+    accent5: (
+        bg:				{{ palette.accent5 }},
+        fg:				mix({{ palette.accent5 }}, #ffffff, 25%),
+        fg-bold:		#ffffff,
+        fg-light:		mix({{ palette.accent5 }}, #ffffff, 40%),
+        highlight:		#ffffff,
+        border:			#fff,
+        border-bg:		rgba(255,255,255,0.075),
+        border2:		#fff,
+        border2-bg:		rgba(255,255,255,0.2)
+    )
+);
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/vendor';
+@import 'libs/breakpoints';
+@import 'libs/html-grid';
+@import 'font-awesome.min.css';
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,600|Lato:400,300');
+
+/*
+	Optics by Pixelarity
+	pixelarity.com | hello@pixelarity.com
+	License: pixelarity.com/license
+*/
+
+// Breakpoints.
+
+	@include breakpoints((
+		xlarge:   ( 1281px,  1680px ),
+		large:    ( 981px,   1280px ),
+		medium:   ( 737px,   980px  ),
+		small:    ( 481px,   736px  ),
+		xsmall:   ( 361px,   480px  ),
+		xxsmall:  ( null,    360px  )
+	));
+
+// Mixins.
+
+	@mixin color($p: null) {
+		@include color-typography($p);
+		@include color-form($p);
+		@include color-list($p);
+		@include color-icons($p);
+		@include color-labeled-icons($p);
+		@include color-checklist($p);
+		@include color-table($p);
+		@include color-button($p);
+		@include color-icon($p);
+	}
+
+// Base.
+
+	@import 'base/reset';
+	@import 'base/page';
+	@import 'base/typography';
+
+// Component.
+
+	@import 'components/row';
+	@import 'components/section';
+	@import 'components/form';
+	@import 'components/box';
+	@import 'components/icon';
+	@import 'components/image';
+	@import 'components/list';
+	@import 'components/actions';
+	@import 'components/icons';
+	@import 'components/labeled-icons';
+	@import 'components/checklist';
+	@import 'components/table';
+	@import 'components/button';
+	@import 'components/wrapper';
+	@import 'components/features';
+	@import 'components/spotlight';
+
+// Layout.
+
+	@import 'layout/header';
+	@import 'layout/nav';
+	@import 'layout/banner';
+	@import 'layout/main';
+	@import 'layout/footer';

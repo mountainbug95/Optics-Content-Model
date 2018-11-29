@@ -1,0 +1,599 @@
+backend:
+  name: git-gateway
+  branch: master
+media_folder: uploads
+public_folder: /uploads
+collections:
+  - name: config
+    label: Config
+    files:
+      - name: config
+        label: Config
+        file: _config.yml
+        fields:
+          - name: title
+            label: Title
+            widget: text
+            required: true
+          - name: home_template
+            widget: hidden
+            required: false
+            default: home
+            hint: The name of the home template
+          - name: menu
+            widget: object
+            required: false
+            label: Menu Configuration
+            fields:
+              - name: actions
+                widget: list
+                required: false
+                label: Menu Action Buttons
+                fields:
+                  - name: label
+                    widget: string
+                    required: true
+                    label: Button Label
+                    hint: The text displayed inside the action button
+                  - name: url
+                    widget: string
+                    required: false
+                    label: Button URL
+                  - name: is_scrolly
+                    widget: boolean
+                    required: false
+                    label: Is Scrolly
+                    default: false
+                    hint: >-
+                      Gives the button a scroll animation (if the button URL is
+                      a section ID)
+                  - name: is_primary
+                    widget: boolean
+                    required: false
+                    label: Is Primary
+                    default: false
+                    hint: Gives the buttona primary color scheme
+          - name: copyright
+            widget: string
+            required: false
+            label: Copyright Text
+            hint: The copyright text displayed in the page footer
+          - name: palette
+            widget: select
+            required: true
+            label: Color Palette
+            default: blue
+            hint: The coor palette used by the site
+            options:
+              - blue
+              - green
+              - purple
+              - red
+          - name: palettes
+            widget: hidden
+            required: false
+  - name: home
+    label: Home
+    files:
+      - name: home
+        label: Home
+        file: index.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+          - name: banner
+            widget: object
+            required: false
+            label: Page Banner
+            hint: The banner displayed at the top of the landing page
+            fields:
+              - name: title
+                widget: text
+                required: true
+                label: Banner Title
+                hint: The text displayed inside the banner
+              - name: actions
+                widget: list
+                required: false
+                label: Banner Action Buttons
+                fields:
+                  - name: label
+                    widget: string
+                    required: true
+                    label: Button Label
+                    hint: The text displayed inside the action button
+                  - name: url
+                    widget: string
+                    required: false
+                    label: Button URL
+                  - name: is_scrolly
+                    widget: boolean
+                    required: false
+                    label: Is Scrolly
+                    default: false
+                    hint: >-
+                      Gives the button a scroll animation (if the button URL is
+                      a section ID)
+                  - name: is_primary
+                    widget: boolean
+                    required: false
+                    label: Is Primary
+                    default: false
+                    hint: Gives the buttona primary color scheme
+          - name: sections
+            widget: list
+            required: false
+            label: Sections
+            hint: Home sections
+            types:
+              - name: icons
+                widget: object
+                label: Icons Section
+                fields:
+                  - name: background_style
+                    widget: select
+                    required: false
+                    label: Background Style
+                    hint: Sets the background color of the section
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                      - style5
+                      - style6
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    default: Donec nec justo eget felis
+                  - name: text
+                    widget: markdown
+                    required: false
+                    label: Section Text
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: one
+                  - name: icons
+                    widget: list
+                    required: false
+                    label: Section Icons
+                    hint: The Icond displayed along the top of the section
+                    fields:
+                      - name: title
+                        widget: string
+                        required: true
+                        label: Icon Title
+                      - name: icon
+                        widget: string
+                        required: true
+                        label: Icon
+                        hint: Font Awesome icon
+                      - name: is_special
+                        widget: boolean
+                        required: false
+                        label: Assign Primary Color
+                        default: false
+                        hint: Gives the icon a primary color scheme
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: icons.html
+              - name: features
+                widget: object
+                label: Features Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    default: Consectetuer ligula vulputat
+                  - name: subtitle
+                    widget: string
+                    required: false
+                    label: Section Subtitle
+                    hint: The small text displayed above the section title
+                  - name: text
+                    widget: markdown
+                    required: false
+                    label: Section Text
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: two
+                  - name: background_style
+                    widget: select
+                    required: false
+                    label: Background Style
+                    default: style1
+                    hint: Sets the background color of the section
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                      - style5
+                      - style6
+                  - name: left_col
+                    widget: list
+                    required: false
+                    label: Left Column
+                    hint: >-
+                      The features to be displayed along the left side of the
+                      section
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Feature Title
+                      - name: text
+                        widget: string
+                        required: true
+                        label: Feature text
+                        hint: The text displayed inside the feature
+                      - name: icon
+                        widget: string
+                        required: false
+                        label: Icon
+                        hint: >-
+                          (Font Awesome icon) The icon displayed beside the
+                          feature text
+                  - name: right_col
+                    widget: list
+                    required: false
+                    label: Right Column
+                    hint: >-
+                      The features to be displayed along the right side of the
+                      section
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Feature Title
+                      - name: text
+                        widget: string
+                        required: true
+                        label: Feature text
+                        hint: The text displayed inside the feature
+                      - name: icon
+                        widget: string
+                        required: false
+                        label: Icon
+                        hint: >-
+                          (Font Awesome icon) The icon displayed beside the
+                          feature text
+                  - name: center_img
+                    widget: object
+                    required: false
+                    label: Center Image
+                    hint: The image displayed between the two feature columns
+                    fields:
+                      - name: type
+                        widget: string
+                        required: false
+                        label: Image type
+                        default: image/svg+xml
+                        hint: The type of image being displayed
+                      - name: path
+                        widget: image
+                        required: false
+                        label: Image
+                      - name: IE_alt
+                        widget: image
+                        required: false
+                        label: Internet Explorer Alternat Image
+                        hint: >-
+                          An alternate image used for the Internet Explorer
+                          browser
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: features.html
+              - name: spotlight
+                widget: object
+                label: Spotlight Section
+                fields:
+                  - name: background_style
+                    widget: select
+                    required: false
+                    label: Background Style
+                    hint: Sets the background color of the section
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                      - style5
+                      - style6
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    default: Cras ornare
+                  - name: subtitle
+                    widget: string
+                    required: false
+                    label: Section Subtitle
+                    hint: The small text displayed above the section title
+                  - name: text
+                    widget: markdown
+                    required: false
+                    label: Section Text
+                    hint: The text displayed below the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: three
+                  - name: home_img
+                    widget: object
+                    required: false
+                    label: Spotlight Image
+                    hint: The image displayed next to the spotlight
+                    fields:
+                      - name: path
+                        widget: image
+                        required: false
+                        label: Image
+                      - name: alignment
+                        widget: select
+                        required: true
+                        label: Image Position
+                        hint: The side of the spotlight the image is displayed on
+                        options:
+                          - left
+                          - right
+                  - name: actions
+                    widget: list
+                    required: false
+                    label: Section Action Buttons
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Button Label
+                        hint: The text displayed inside the action button
+                      - name: url
+                        widget: string
+                        required: false
+                        label: Button URL
+                      - name: is_scrolly
+                        widget: boolean
+                        required: false
+                        label: Is Scrolly
+                        default: false
+                        hint: >-
+                          Gives the button a scroll animation (if the button URL
+                          is a section ID)
+                      - name: is_primary
+                        widget: boolean
+                        required: false
+                        label: Is Primary
+                        default: false
+                        hint: Gives the buttona primary color scheme
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: spotlight.html
+              - name: checklist
+                widget: object
+                label: Checklist Section
+                fields:
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    default: Augue feugiat
+                  - name: subtitle
+                    widget: string
+                    required: false
+                    label: Section Subtitle
+                    hint: The small text displayed above the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: four
+                  - name: background_style
+                    widget: select
+                    required: false
+                    label: Background Style
+                    default: style3
+                    hint: Sets the background color of the section
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                      - style5
+                      - style6
+                  - name: home_img
+                    widget: object
+                    required: false
+                    label: Section Image
+                    hint: The Image displayed next to the section contents
+                    fields:
+                      - name: path
+                        widget: image
+                        required: false
+                        label: Image
+                      - name: type
+                        widget: string
+                        required: false
+                        label: Image Type
+                        default: image/svg+xml
+                        hint: The type of image being displayed
+                      - name: alignment
+                        widget: select
+                        required: false
+                        label: Image Position
+                        default: right
+                        hint: The side of the section the image is displayed on
+                        options:
+                          - left
+                          - right
+                      - name: IE_alt
+                        widget: image
+                        required: false
+                        label: Internet Explorer Alternate Image
+                        hint: >-
+                          An alternate image used by the internet explorer
+                          browser
+                  - name: checklist_items
+                    widget: list
+                    required: false
+                    label: Checklist Entries
+                    hint: A list of entries to be displayed in the section checklist
+                    fields:
+                      - name: text
+                        widget: string
+                        required: true
+                        label: Entry Text
+                        hint: The text displayed next to the check
+                  - name: actions
+                    widget: list
+                    required: false
+                    label: Section Action Buttons
+                    fields:
+                      - name: label
+                        widget: string
+                        required: true
+                        label: Button Label
+                        hint: The text displayed inside the action button
+                      - name: url
+                        widget: string
+                        required: false
+                        label: Button URL
+                      - name: is_scrolly
+                        widget: boolean
+                        required: false
+                        label: Is Scrolly
+                        default: false
+                        hint: >-
+                          Gives the button a scroll animation (if the button URL
+                          is a section ID)
+                      - name: is_primary
+                        widget: boolean
+                        required: false
+                        label: Is Primary
+                        default: false
+                        hint: Gives the buttona primary color scheme
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: checklist.html
+              - name: contact
+                widget: object
+                label: Contact Section
+                fields:
+                  - name: background_style
+                    widget: select
+                    required: false
+                    label: Background Style
+                    hint: Sets the background color of the section
+                    options:
+                      - style1
+                      - style2
+                      - style3
+                      - style4
+                      - style5
+                      - style6
+                  - name: title
+                    widget: string
+                    required: true
+                    label: Section Title
+                    default: Etiam feugiat ligula
+                  - name: subtitle
+                    widget: string
+                    required: false
+                    label: Section Subtitle
+                    hint: The small text displayed above the section title
+                  - name: section_id
+                    widget: string
+                    required: true
+                    label: Section ID
+                    default: five
+                  - name: social_icons
+                    widget: list
+                    required: false
+                    label: Contact Methods
+                    hint: >-
+                      A list of contact methods displayed below the section
+                      title
+                    fields:
+                      - name: text
+                        widget: string
+                        required: true
+                        label: Method Description
+                        hint: A description of the contact method
+                      - name: icon
+                        widget: string
+                        required: false
+                        label: Method Icon
+                        hint: Font Awesome icon
+                  - name: component
+                    widget: hidden
+                    required: true
+                    default: contact.html
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: home
+  - name: page
+    label: Pages
+    folder: /
+    filter:
+      field: layout
+      value: page
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - name: title
+        widget: string
+        required: true
+        label: Page Title
+        hint: The title displayed at the top of the page banner
+      - name: subtitle
+        widget: markdown
+        required: false
+        label: Page Subtitle
+        hint: The text displayed below the page title
+      - name: layout
+        widget: hidden
+        required: true
+        label: Layout
+        default: page
+      - name: body
+        label: Content
+        widget: markdown
+  - name: elements
+    label: Elements
+    files:
+      - name: elements
+        label: Elements
+        file: elements.md
+        fields:
+          - name: title
+            widget: string
+            required: true
+            label: Page Title
+            hint: The title displayed at the top of the page banner
+          - name: subtitle
+            widget: markdown
+            required: false
+            label: Page Subtitle
+            hint: The text displayed below the page title
+          - name: layout
+            widget: hidden
+            required: true
+            label: Layout
+            default: elements

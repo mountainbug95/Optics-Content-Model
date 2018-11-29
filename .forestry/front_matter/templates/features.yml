@@ -1,0 +1,112 @@
+---
+label: Features Section
+hide_body: true
+is_partial: true
+display_field: title
+fields:
+  - type: text
+    name: title
+    label: Section Title
+    default: Consectetuer ligula vulputat
+    config:
+      required: true
+  - type: text
+    name: subtitle
+    label: Section Subtitle
+    description: The small text displayed above the section title
+  - type: textarea
+    name: text
+    label: Section Text
+    description: The text displayed below the section title
+    config:
+      wysiwyg: true
+      schema:
+        format: markdown
+  - type: text
+    name: section_id
+    label: Section ID
+    default: two
+    config:
+      required: true
+  - type: select
+    name: background_style
+    label: Background Style
+    description: Sets the background color of the section
+    default: style1
+    config:
+      source:
+        type: custom
+      options:
+        - style1
+        - style2
+        - style3
+        - style4
+        - style5
+        - style6
+  - type: field_group_list
+    name: left_col
+    label: Left Column
+    description: The features to be displayed along the left side of the section
+    config:
+      labelField: label
+    fields:
+      - type: text
+        name: label
+        label: Feature Title
+        config:
+          required: true
+      - type: text
+        name: text
+        label: Feature text
+        description: The text displayed inside the feature
+        config:
+          required: true
+      - type: text
+        name: icon
+        label: Icon
+        description: (Font Awesome icon) The icon displayed beside the feature text
+  - type: field_group_list
+    name: right_col
+    label: Right Column
+    description: The features to be displayed along the right side of the section
+    config:
+      labelField: label
+    fields:
+      - type: text
+        name: label
+        label: Feature Title
+        config:
+          required: true
+      - type: text
+        name: text
+        label: Feature text
+        description: The text displayed inside the feature
+        config:
+          required: true
+      - type: text
+        name: icon
+        label: Icon
+        description: (Font Awesome icon) The icon displayed beside the feature text
+  - type: field_group
+    name: center_img
+    label: Center Image
+    description: The image displayed between the two feature columns
+    fields:
+      - type: text
+        name: type
+        label: Image type
+        description: The type of image being displayed
+        default: image/svg+xml
+      - type: file
+        name: path
+        label: Image
+      - type: file
+        name: IE_alt
+        label: Internet Explorer Alternat Image
+        description: An alternate image used for the Internet Explorer browser
+  - type: text
+    name: component
+    hidden: true
+    default: features.html
+    config:
+      required: true

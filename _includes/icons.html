@@ -1,0 +1,16 @@
+<!-- One -->
+<section id="{{ include.section.section_id }}" class="wrapper special {{ include.section.background_style }}">
+    <div class="inner">
+        <ul class="icons major">
+            {% for item in include.section.icons %}
+                <li{% if item.is_special %} class="special"{% endif %}><span class="icon alt {{ item.icon }}">
+                    <span class="label">{{ item.title }}</span>
+                    </span></li>
+            {% endfor %}
+        </ul>
+        <header>
+            <h2>{{ include.section.title }}</h2>
+            {{ include.section.text | markdownify }}
+        </header>
+    </div>
+</section>
