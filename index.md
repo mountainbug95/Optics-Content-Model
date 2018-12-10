@@ -30,7 +30,7 @@ sections:
         icon: fa-camera
         is_special: false
     component: icons.html
-    type: icons
+    template: icons
   - title: Consectetuer ligula vulputat
     subtitle: Aliquam
     text: >-
@@ -63,7 +63,7 @@ sections:
       path: images/pic01-phone.svg
       IE_alt: images/pic01.jpg
     component: features.html
-    type: features
+    template: features
   - title: Cras ornare
     subtitle: Dignissim
     text: >-
@@ -82,7 +82,7 @@ sections:
         is_scrolly: false
         is_primary: false
     component: spotlight.html
-    type: spotlight
+    template: spotlight
   - title: Augue feugiat
     subtitle: Malesuada
     section_id: four
@@ -104,7 +104,7 @@ sections:
         is_scrolly: false
         is_primary: false
     component: checklist.html
-    type: checklist
+    template: checklist
   - title: Etiam feugiat ligula
     subtitle: Adipiscing
     section_id: five
@@ -117,7 +117,7 @@ sections:
       - text: 'Nashville, TN'
         icon: fa-map-marker
     component: contact.html
-    type: contact
+    template: contact
 menus:
   main:
     title: Home
