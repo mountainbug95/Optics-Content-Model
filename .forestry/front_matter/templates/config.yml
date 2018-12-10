@@ -11,6 +11,7 @@ fields:
       required: true
   - type: text
     name: home_template
+    label: Home Template
     description: The name of the home template
     hidden: true
     default: home
