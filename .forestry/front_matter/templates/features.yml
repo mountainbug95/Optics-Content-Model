@@ -106,6 +106,7 @@ fields:
         description: An alternate image used for the Internet Explorer browser
   - type: text
     name: component
+    label: Section Component
     hidden: true
     default: features.html
     config:

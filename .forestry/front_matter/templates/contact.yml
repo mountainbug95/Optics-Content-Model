@@ -53,6 +53,7 @@ fields:
         description: Font Awesome icon
   - type: text
     name: component
+    label: Section Component
     hidden: true
     default: contact.html
     config:

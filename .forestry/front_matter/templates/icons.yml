@@ -63,6 +63,7 @@ fields:
         default: false
   - type: text
     name: component
+    label: Section Component
     hidden: true
     default: icons.html
     config:
