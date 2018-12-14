@@ -18,6 +18,7 @@ collections:
           - name: home_template
             widget: hidden
             required: false
+            label: Home Template
             default: home
             hint: The name of the home template
           - name: menu
@@ -72,6 +73,7 @@ collections:
           - name: palettes
             widget: hidden
             required: false
+            label: Palettes
   - name: home
     label: Home
     files:
@@ -183,6 +185,7 @@ collections:
                   - name: component
                     widget: hidden
                     required: true
+                    label: Section Component
                     default: icons.html
               - name: features
                 widget: object
@@ -295,6 +298,7 @@ collections:
                   - name: component
                     widget: hidden
                     required: true
+                    label: Section Component
                     default: features.html
               - name: spotlight
                 widget: object
@@ -381,6 +385,7 @@ collections:
                   - name: component
                     widget: hidden
                     required: true
+                    label: Section Component
                     default: spotlight.html
               - name: checklist
                 widget: object
@@ -488,6 +493,7 @@ collections:
                   - name: component
                     widget: hidden
                     required: true
+                    label: Section Component
                     default: checklist.html
               - name: contact
                 widget: object
@@ -541,6 +547,7 @@ collections:
                   - name: component
                     widget: hidden
                     required: true
+                    label: Section Component
                     default: contact.html
           - name: layout
             widget: hidden
